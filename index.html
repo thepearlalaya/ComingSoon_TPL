@@ -1,65 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- STREAMING_CHUNK:Initializing document metadata... -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pearl Alaya | Coming Soon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        .font-serif { font-family: 'Cormorant Garamond', serif; }
-        .font-sans { font-family: 'Inter', sans-serif; }
-        body { background-color: #F5F2EF; color: #4A4036; }
-        .polaroid { 
-            background: white; 
-            padding: 10px 10px 30px 10px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .polaroid:hover { transform: scale(1.02); }
-        .marquee { overflow: hidden; white-space: nowrap; }
-        .marquee-inner { display: inline-block; animation: scroll 20s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pearl Alaya — Coming Soon</title>
+<meta name="description" content="The Pearl Alaya — luxury, made slowly. Launching soon.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FBF9F5;
+    --bg-soft:#F6F1E9;
+    --ink:#241D17;
+    --ink-soft:#6B5F51;
+    --gold:#A8730F;
+    --gold-deep:#7C5208;
+    --line: rgba(168,115,15,0.3);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Jost', sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    overflow-x:hidden;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Calm warm-white backdrop ---------- */
+  .bg-layer{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background:
+      radial-gradient(ellipse 90% 65% at 50% 28%, var(--bg) 0%, var(--bg-soft) 100%);
+  }
+
+  .grain{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    opacity:0.025;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .frame{
+    position:relative;
+    z-index:3;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-panel{
+    position:relative;
+    width:100%;
+    height:46vh;
+    overflow:hidden;
+  }
+  .portrait-panel img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position: 50% 18%;
+    display:block;
+    opacity:0;
+    animation: panelIn 1.6s cubic-bezier(.16,.84,.32,1) 0.2s forwards;
+  }
+  .portrait-panel::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(251,249,245,0) 60%, rgba(251,249,245,0.96) 100%);
+  }
+  @keyframes panelIn{
+    from{ opacity:0; transform:scale(1.06); }
+    to{ opacity:1; transform:scale(1); }
+  }
+
+  .content{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 6vh 6vw 6vh;
+    min-height:54vh;
+  }
+
+  .corner{
+    position:fixed;
+    width:46px; height:46px;
+    border:1px solid var(--line);
+    z-index:4;
+    opacity:0.55;
+  }
+  .corner.tl{ top:28px; left:28px; border-right:none; border-bottom:none; }
+  .corner.tr{ top:28px; right:28px; border-left:none; border-bottom:none; }
+  .corner.bl{ bottom:28px; left:28px; border-right:none; border-top:none; }
+  .corner.br{ bottom:28px; right:28px; border-left:none; border-top:none; }
+
+  .logo-wrap{
+    width: clamp(180px, 18vw, 240px);
+    height: clamp(180px, 18vw, 240px);
+    border-radius:50%;
+    overflow:hidden;
+    margin-bottom:2.2rem;
+    box-shadow: 0 0 0 1px rgba(168,115,15,0.28), 0 24px 60px -16px rgba(60,40,10,0.32);
+    opacity:0;
+    animation: riseIn 1.1s cubic-bezier(.16,.84,.32,1) 0.15s forwards;
+  }
+  .logo-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .eyebrow{
+    font-weight:400;
+    font-size:0.72rem;
+    letter-spacing:0.42em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:1.1rem;
+    opacity:0;
+    animation: riseIn 1s cubic-bezier(.16,.84,.32,1) 0.4s forwards;
+  }
+
+  h1.wordmark{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    line-height:1.05;
+    color:var(--ink);
+    letter-spacing:0.01em;
+    opacity:0;
+    animation: riseIn 1.1s cubic-bezier(.16,.84,.32,1) 0.55s forwards;
+  }
+
+  .rule{
+    width:1px;
+    height:0;
+    background:var(--gold);
+    margin:1.6rem auto;
+    animation: growRule 1.1s cubic-bezier(.65,0,.35,1) 1.0s forwards;
+  }
+  @keyframes growRule{ to{ height:46px; } }
+
+  .coming-soon{
+    font-weight:400;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing:0.5em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:1.6rem;
+    opacity:0;
+    animation: riseIn 1s cubic-bezier(.16,.84,.32,1) 1.4s forwards;
+  }
+
+  .tagline{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color:var(--ink-soft);
+    max-width:480px;
+    line-height:1.6;
+    opacity:0;
+    animation: riseIn 1s cubic-bezier(.16,.84,.32,1) 1.6s forwards;
+  }
+
+  @keyframes riseIn{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; }
+    .logo-wrap, .eyebrow, h1.wordmark, .rule, .coming-soon, .tagline{ opacity:1; }
+    .rule{ height:46px; }
+  }
+
+  @media (min-width: 1000px){
+    .frame{ grid-template-columns: 38vw 1fr; }
+    .portrait-panel{ height:100vh; }
+    .portrait-panel img{ object-position: 50% 16%; }
+    .portrait-panel::after{
+      background: linear-gradient(90deg, rgba(251,249,245,0) 60%, rgba(251,249,245,0.96) 100%);
+    }
+    .portrait-panel::before{
+      content:"";
+      position:absolute; inset:0;
+      z-index:2;
+      box-shadow: inset 0 0 90px rgba(36,29,23,0.14);
+    }
+    .content{ text-align:left; align-items:flex-start; padding-left:7vw; min-height:100vh; }
+    .rule{ margin-left:0; }
+  }
+
+  @media (min-width: 1000px) and (max-width: 1280px){
+    h1.wordmark{ font-size: clamp(2.6rem, 5.4vw, 3.8rem); }
+  }
+</style>
 </head>
-<body class="font-sans min-h-screen flex flex-col overflow-x-hidden">
+<body>
 
-    <!-- STREAMING_CHUNK:Defining brand header with centered logo... -->
-    <header class="p-6 md:p-8 flex flex-col items-center justify-center gap-2 z-10">
-        <img src="TPL_Logo.jpg" alt="The Pearl Alaya Logo" class="h-20 md:h-28 w-auto object-contain">
-        <h1 class="font-serif text-2xl md:text-3xl tracking-[0.2em] uppercase text-center">The Pearl Alaya</h1>
-    </header>
+  <div class="bg-layer"></div>
+  <div class="grain"></div>
 
-    <!-- STREAMING_CHUNK:Rendering main editorial content... -->
-    <main class="flex-grow flex flex-col items-center justify-center relative p-6 md:p-4">
-        <p class="font-serif text-xs md:text-sm tracking-[0.3em] uppercase mb-8 md:mb-12 text-center">A New Era of Beauty Is Near</p>
-        
-        <!-- Polaroids (Hidden on small mobile, shown on tablets and up) -->
-        <div class="hidden lg:block">
-            <div class="absolute top-20 left-[15%] -rotate-3 w-48 polaroid">
-                <img src="TPL_Suit.jpeg" alt="Collection" class="w-full h-64 object-cover">
-            </div>
-            <div class="absolute top-40 left-[5%] rotate-2 w-40 polaroid">
-                <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-56 object-cover">
-            </div>
-            <div class="absolute bottom-20 right-[15%] rotate-6 w-48 polaroid">
-                <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-64 object-cover">
-            </div>
-            <div class="absolute bottom-40 right-[5%] -rotate-2 w-40 polaroid">
-                <img src="TPL_Suit.jpeg" alt="Collection" class="w-full h-56 object-cover">
-            </div>
-        </div>
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
 
-        <!-- Main Title (Responsive sizing) -->
-        <h2 class="font-serif text-5xl md:text-7xl lg:text-9xl italic font-light z-10 text-center">Coming Soon.</h2>
-    </main>
+  <div class="frame">
 
-    <!-- STREAMING_CHUNK:Setting up editorial footer marquee... -->
-    <footer class="py-6 md:py-8 marquee font-serif text-sm uppercase tracking-widest border-t border-stone-200 mt-8 md:mt-12">
-        <div class="marquee-inner">
-            <span>Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal</span>
-        </div>
-    </footer>
+    <div class="portrait-panel">
+      <img src="TPL_Suit.jpeg" alt="The Pearl Alaya — luxury clothing">
+    </div>
+
+    <div class="content">
+      <div class="logo-wrap">
+        <img src="TPL_Logo.jpg" alt="The Pearl Alaya">
+      </div>
+
+      <p class="eyebrow">Luxury Clothing</p>
+
+      <h1 class="wordmark">The Pearl Alaya</h1>
+
+      <div class="rule"></div>
+
+      <p class="coming-soon">Coming Soon</p>
+
+      <p class="tagline">Where heirloom craft becomes everyday luxury.</p>
+    </div>
+
+  </div>
+
 </body>
 </html>
