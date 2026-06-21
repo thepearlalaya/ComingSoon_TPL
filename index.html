@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pearl Alaya | Luxury Chikankari Couture (Coming Soon)</title>
     
-    <!-- Google Fonts for Editorial Luxury Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS for high-fidelity styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome for Elegant Minimal Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -22,11 +18,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            mauve: '#9D807A',       /* Exact First Feather background hue */
-                            accent: '#D4AF37',      /* Brushed Gold */
-                            cream: '#FDFBF7',       /* Linen Ivory */
-                            dark: '#2E2524',        /* Editorial Espresso */
-                            soft: '#F4ECE1'         /* Soft Alabaster */
+                            mauve: '#9D807A',
+                            accent: '#D4AF37',
+                            cream: '#FDFBF7',
+                            dark: '#2E2524',
+                            soft: '#F4ECE1'
                         }
                     },
                     fontFamily: {
@@ -39,48 +35,22 @@
     </script>
     
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes pulseSoft {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.25; }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
-
-        /* Premium Gold Shimmer Overlay */
-        .gold-shimmer {
-            background: linear-gradient(120deg, #d4af37 0%, #f5e4a3 50%, #d4af37 100%);
-            background-size: 200% auto;
-            transition: 0.5s;
-        }
-        .gold-shimmer:hover {
-            background-position: right center;
-        }
+        .gold-shimmer { background: linear-gradient(120deg, #d4af37 0%, #f5e4a3 50%, #d4af37 100%); background-size: 200% auto; transition: 0.5s; }
+        .gold-shimmer:hover { background-position: right center; }
     </style>
 </head>
 <body class="font-sans text-brand-dark min-h-screen flex flex-col justify-between overflow-x-hidden relative bg-cover bg-center bg-no-repeat bg-fixed" 
       style="background-image: linear-gradient(rgba(157, 128, 122, 0.62), rgba(157, 128, 122, 0.62)), url('Pearl Alaya logo_3.jpg');">
 
-    <!-- Ambient Gold Radial Overlay -->
-    <div class="absolute inset-0 bg-radial-gradient from-white/5 to-transparent pointer-events-none"></div>
-
-    <!-- MAIN NAV HEADER (First Feather Signature Styling) -->
     <header class="w-full py-6 px-6 md:px-12 z-20 flex justify-between items-center relative border-b border-white/10 bg-brand-mauve/40 backdrop-blur-md">
         <div class="flex items-center space-x-3">
             <span class="text-brand-cream tracking-[0.3em] text-xs font-semibold uppercase">T P A</span>
         </div>
-        
-        <!-- Live Instagram Link -->
         <a href="https://www.instagram.com/thepearlalaya/" target="_blank" rel="noopener noreferrer" 
            class="text-brand-cream/90 hover:text-brand-cream text-sm transition-all duration-300 flex items-center space-x-2 group">
             <i class="fab fa-instagram text-lg group-hover:scale-110 transition-transform"></i>
@@ -88,191 +58,49 @@
         </a>
     </header>
 
-    <!-- CENTRAL LUXURY PORTRAIT CONTAINER -->
-    <main class="flex-grow flex items-center justify-center px-4 py-8 md:py-16 relative z-10">
-        <div class="max-w-4xl w-full">
-            
-            <!-- White Linen Card Frame (Stationary-Style Luxury with Frosted Glass Backdrop-blur) -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-8 md:py-16 relative z-10">
+        <div class="max-w-4xl w-full mb-16">
             <div class="bg-brand-cream/95 p-6 md:p-10 rounded-[40px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.45)] border border-white/60 backdrop-blur-lg animate-fade-in relative overflow-hidden">
-                
-                <!-- Delicate Corner Markers for Elegance -->
-                <div class="absolute top-5 left-5 w-5 h-5 border-t border-l border-brand-accent/30"></div>
-                <div class="absolute top-5 right-5 w-5 h-5 border-t border-r border-brand-accent/30"></div>
-                <div class="absolute bottom-5 left-5 w-5 h-5 border-b border-l border-brand-accent/30"></div>
-                <div class="absolute bottom-5 right-5 w-5 h-5 border-b border-r border-brand-accent/30"></div>
-
-                <!-- Two-Column Editorial Layout: Left for campaign model images, Right for text copy and interactive countdown -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    
-                    <!-- LEFT COLUMN: Fashion Campaign Dual Frame Collage -->
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-2 gap-3">
-                            
-                            <!-- Frame 1: Elegant Model Portrait (With Face) -->
-                            <div class="relative rounded-2xl overflow-hidden shadow-md border border-brand-soft bg-white p-1">
-                                <div class="aspect-[3/4] overflow-hidden rounded-xl">
-                                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop" 
-                                         alt="The Pearl Alaya Campaign Model Face" 
-                                         class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                                         onerror="this.src='https://placehold.co/300x400/9D807A/FFFFFF?text=The+Model';">
-                                </div>
-                                <div class="absolute bottom-2 left-3 bg-white/80 backdrop-blur-sm py-1 px-3 rounded-full">
-                                    <p class="text-[8px] font-sans tracking-[0.15em] uppercase text-brand-dark/80 font-bold">The Muse</p>
-                                </div>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/3">
+                        <div class="relative rounded-2xl overflow-hidden shadow-md border border-brand-soft bg-white p-1">
+                            <div class="aspect-[3/4] overflow-hidden rounded-xl">
+                                <img src="TPL_Suit.jpeg" alt="The Pearl Alaya Hand-embroidered Suit" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
                             </div>
-
-                            <!-- Frame 2: Authentic Outfit Detail (image_2414fe.jpg - Chikankari + Pink Bangles) -->
-                            <div class="relative rounded-2xl overflow-hidden shadow-md border border-brand-soft bg-white p-1">
-                                <div class="aspect-[3/4] overflow-hidden rounded-xl">
-                                    <img src="image_2414fe.jpg" 
-                                         alt="The Pearl Alaya Hand-embroidered Suit" 
-                                         class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                                         onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop';">
-                                </div>
-                                <div class="absolute bottom-2 left-3 bg-white/80 backdrop-blur-sm py-1 px-3 rounded-full">
-                                    <p class="text-[8px] font-sans tracking-[0.15em] uppercase text-brand-dark/80 font-bold">The Craft</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                        <!-- Little caption line in true editorial style -->
-                        <div class="text-center pt-1">
-                            <p class="font-serif italic text-xs md:text-sm text-brand-mauve/90">
-                                Capturing Lucknowi elegance through delicate threadwork & signature pearl embellishments.
-                            </p>
                         </div>
                     </div>
-
-                    <!-- RIGHT COLUMN: Luxury Brand Copywriting, Logo, Countdown & Invite Form -->
-                    <div class="text-center md:text-left md:pl-4">
-                        
-                        <!-- Mini Logo Header to reinforce brand presence -->
-                        <div class="flex justify-center md:justify-start mb-6">
-                            <div class="w-20 h-20 rounded-full overflow-hidden shadow-md border border-brand-soft bg-white p-1">
-                                <img src="Pearl Alaya logo_3.jpg" alt="The Pearl Alaya Logo Icon" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/100x100/9D807A/FFFFFF?text=TPA';">
+                    <div class="text-center md:text-left w-full md:w-2/3">
+                        <h1 class="font-serif text-3xl md:text-4xl text-brand-dark tracking-[0.12em] uppercase mb-4 font-normal">Coming Soon</h1>
+                        <p class="text-brand-dark/75 text-sm md:text-base leading-relaxed mb-8">Premium handcrafted Chikankari couture for the modern soul.</p>
+                        <form id="waitlist-form" onsubmit="handleFormSubmit(event)" class="space-y-3">
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="email" required id="email" placeholder="Enter Your Email" class="flex-grow px-4 py-3 rounded-xl bg-brand-soft/40 border border-brand-dark/10 focus:border-brand-accent focus:outline-none text-sm">
+                                <button type="submit" class="gold-shimmer text-brand-dark font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-xl">Request Invite</button>
                             </div>
-                        </div>
-
-                        <!-- Brand Headers -->
-                        <h2 class="font-serif italic text-lg md:text-xl text-brand-mauve tracking-wide mb-1 animate-fade-in delay-1">
-                            An Ode to Lucknow's Royal Artistry
-                        </h2>
-                        <h1 class="font-serif text-3xl md:text-4xl text-brand-dark tracking-[0.12em] uppercase mb-4 font-normal animate-fade-in delay-1">
-                            Coming Soon
-                        </h1>
-                        
-                        <p class="text-brand-dark/75 text-sm md:text-base leading-relaxed mb-8 animate-fade-in delay-2 font-sans">
-                            Premium handcrafted wedding attire, trousseaus, and bridesmaids edits. Beautifully detailed with pure hand-embroidered Chikankari designs, georgettes, and subtle silver Mukaish embellishments.
-                        </p>
-
-                        <!-- Elegant Editorial Countdown -->
-                        <div class="grid grid-cols-4 gap-2 max-w-sm mx-auto md:mx-0 mb-8 animate-fade-in delay-2" id="countdown">
-                            <div class="bg-brand-soft/60 rounded-xl py-3 px-1 border border-brand-mauve/5 text-center">
-                                <span class="block font-serif text-2xl md:text-3xl text-brand-dark" id="days">00</span>
-                                <span class="block text-[8px] uppercase tracking-widest text-brand-dark/40 mt-1">Days</span>
-                            </div>
-                            <div class="bg-brand-soft/60 rounded-xl py-3 px-1 border border-brand-mauve/5 text-center">
-                                <span class="block font-serif text-2xl md:text-3xl text-brand-dark" id="hours">00</span>
-                                <span class="block text-[8px] uppercase tracking-widest text-brand-dark/40 mt-1">Hours</span>
-                            </div>
-                            <div class="bg-brand-soft/60 rounded-xl py-3 px-1 border border-brand-mauve/5 text-center">
-                                <span class="block font-serif text-2xl md:text-3xl text-brand-dark" id="minutes">00</span>
-                                <span class="block text-[8px] uppercase tracking-widest text-brand-dark/40 mt-1">Mins</span>
-                            </div>
-                            <div class="bg-brand-soft/60 rounded-xl py-3 px-1 border border-brand-mauve/5 text-center">
-                                <span class="block font-serif text-2xl md:text-3xl text-brand-dark" id="seconds">00</span>
-                                <span class="block text-[8px] uppercase tracking-widest text-brand-dark/40 mt-1">Secs</span>
-                            </div>
-                        </div>
-
-                        <!-- Minimal VIP Waitlist Invite Form -->
-                        <div class="max-w-md mx-auto md:mx-0 animate-fade-in delay-3">
-                            <p class="text-[10px] tracking-widest uppercase text-brand-dark/50 mb-3 font-bold">Join the Private Launch Waitlist</p>
-                            <form id="waitlist-form" onsubmit="handleFormSubmit(event)" class="space-y-3">
-                                <div class="flex flex-col sm:flex-row gap-2">
-                                    <input type="email" required id="email" placeholder="Enter Your Email Address" 
-                                           class="flex-grow px-4 py-3 rounded-xl bg-brand-soft/40 border border-brand-dark/10 focus:border-brand-accent focus:outline-none text-sm transition-all placeholder:text-brand-dark/40 text-brand-dark font-sans">
-                                    <button type="submit" 
-                                            class="gold-shimmer text-brand-dark font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-brand-accent/15 transition-all duration-300 whitespace-nowrap">
-                                        Request Invite
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
+                        </form>
                     </div>
-                </div> <!-- End Grid -->
-
+                </div>
             </div>
         </div>
+
+        <section class="max-w-xl w-full px-4 animate-fade-in delay-2">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-brand-accent/20">
+                <img src="TPL_Wait.jpg" alt="The Pearl Alaya Narrative Cover" class="w-full h-auto object-cover">
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="w-full py-6 px-6 text-center z-10 border-t border-white/10 bg-brand-mauve/90 backdrop-blur-sm">
-        <p class="text-brand-cream/80 text-[10px] tracking-[0.2em] uppercase">
-            &copy; 2026 The Pearl Alaya. Elegance Handcrafted. All Rights Reserved.
-        </p>
+        <p class="text-brand-cream/80 text-[10px] tracking-[0.2em] uppercase">&copy; 2026 The Pearl Alaya. All Rights Reserved.</p>
     </footer>
 
-    <!-- Premium Success Notification Toast (Zero disruptive alerts) -->
-    <div id="toast" class="fixed bottom-8 right-8 z-50 transform translate-y-20 opacity-0 transition-all duration-500 pointer-events-none max-w-sm w-full px-4 sm:px-0">
-        <div class="bg-brand-cream border border-brand-accent/30 p-5 rounded-2xl shadow-2xl flex items-start space-x-3">
-            <div class="w-8 h-8 rounded-full bg-brand-soft flex items-center justify-center flex-shrink-0 text-brand-accent">
-                <i class="fas fa-check"></i>
-            </div>
-            <div>
-                <h4 class="font-serif text-base text-brand-dark font-semibold">Invitation Registered</h4>
-                <p class="text-xs text-brand-dark/60 mt-1">We have added you to our private waitlist. You will receive custom invite details soon.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Interactive Scripts -->
     <script>
-        // Setup countdown destination (45 days from current load for dynamic visual balance)
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 45); 
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference < 0) {
-                document.getElementById('countdown').innerHTML = "<p class='font-serif text-xl tracking-wide text-brand-dark/60'>Opening our collections soon.</p>";
-                return;
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = String(days).padStart(2, '0');
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Elegant custom Toast instead of generic alerts
         function handleFormSubmit(event) {
             event.preventDefault();
             const emailInput = document.getElementById('email');
-            
             if (emailInput.value) {
-                const toast = document.getElementById('toast');
-                toast.classList.remove('translate-y-20', 'opacity-0');
-                toast.classList.add('translate-y-0', 'opacity-100');
-                
+                alert('Thank you for joining our waitlist!');
                 emailInput.value = '';
-
-                setTimeout(() => {
-                    toast.classList.remove('translate-y-0', 'opacity-100');
-                    toast.classList.add('translate-y-20', 'opacity-0');
-                }, 5000);
             }
         }
     </script>
