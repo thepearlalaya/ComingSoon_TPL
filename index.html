@@ -3,76 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pearl Alaya | Heirlooms for Bridesmaids & Wedding Soirées</title>
+    <title>The Pearl Alaya | Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         .font-serif { font-family: 'Cormorant Garamond', serif; }
-        .font-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .full-bg {
-            background-image: url('TPL_Wait.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
+        .font-sans { font-family: 'Inter', sans-serif; }
+        body { background-color: #F5F2EF; color: #4A4036; }
+        .polaroid { 
+            background: white; 
+            padding: 10px 10px 30px 10px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        .polaroid:hover { transform: scale(1.05); }
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-inner { display: inline-block; animation: scroll 20s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     </style>
 </head>
-<body class="bg-stone-900 text-white font-sans overflow-hidden">
+<body class="font-sans min-h-screen flex flex-col overflow-x-hidden">
 
-    <main class="full-bg flex flex-col items-center justify-center text-center p-6 relative">
-        <div class="absolute inset-0 bg-black/30"></div> <!-- Subtle overlay for text -->
+    <header class="p-8 flex justify-between items-center z-10">
+        <h1 class="font-serif text-2xl tracking-widest uppercase">The Pearl Alaya</h1>
+        <div class="text-sm tracking-widest uppercase"></div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center relative p-4">
+        <p class="font-serif text-sm tracking-[0.3em] uppercase mb-12">A New Era of Beauty Is Near</p>
         
-        <div class="relative z-10 space-y-4">
-            <h1 class="font-serif text-5xl md:text-7xl font-light tracking-wide">The Pearl Alaya</h1>
-            <p class="text-xl md:text-2xl font-serif italic tracking-widest text-stone-200">
-                Heirlooms for Bridesmaids & Wedding Soirées
-            </p>
+        <!-- Polaroids Section -->
+        <div class="hidden md:flex absolute top-20 left-[10%] -rotate-3 w-48 polaroid">
+            <img src="TPL_Suit.jpeg" alt="Collection" class="w-full h-64 object-cover">
         </div>
+        <div class="hidden md:flex absolute bottom-20 right-[10%] rotate-6 w-48 polaroid">
+            <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-64 object-cover">
+        </div>
+
+        <h2 class="font-serif text-8xl md:text-9xl italic font-light z-10">Coming Soon.</h2>
     </main>
 
-    <button id="chatBtn" class="fixed bottom-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full text-white hover:bg-white/20 transition-all z-50">
-        <span class="font-serif">Alaya Assistant</span>
-    </button>
-
-    <div id="chatModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-        <div class="bg-[#FDFBF7] text-stone-800 w-full max-w-md rounded-2xl shadow-2xl flex flex-col h-[500px]">
-            <div class="p-4 border-b flex justify-between items-center">
-                <h3 class="font-serif text-xl">Alaya Assistant</h3>
-                <button onclick="document.getElementById('chatModal').classList.add('hidden')" class="text-stone-400">✕</button>
-            </div>
-            <div id="chatBox" class="flex-grow p-4 overflow-y-auto space-y-4"></div>
-            <div class="p-4 border-t flex gap-2">
-                <input id="userInput" type="text" placeholder="Ask about our collections..." class="flex-grow bg-transparent border-none outline-none">
-                <button id="sendBtn" class="text-stone-600 font-semibold">Send</button>
-            </div>
+    <footer class="py-8 marquee font-serif text-sm uppercase tracking-widest border-t border-stone-200">
+        <div class="marquee-inner">
+            <span>Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal</span>
         </div>
-    </div>
-
-    <script>
-        document.getElementById('chatBtn').onclick = () => document.getElementById('chatModal').classList.remove('hidden');
-        
-        const sendBtn = document.getElementById('sendBtn');
-        const userInput = document.getElementById('userInput');
-        const chatBox = document.getElementById('chatBox');
-
-        sendBtn.onclick = async () => {
-            const text = userInput.value;
-            if(!text) return;
-            chatBox.innerHTML += `<p class="text-right text-stone-600 italic">${text}</p>`;
-            userInput.value = '';
-
-            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: "You are a luxury fashion assistant for The Pearl Alaya, specializing in bridesmaids wear and wedding soirées. Answer helpfully and elegantly: " + text }] }]
-                })
-            });
-            const result = await response.json();
-            const reply = result.candidates[0].content.parts[0].text;
-            chatBox.innerHTML += `<p class="text-stone-800">${reply}</p>`;
-        };
-    </script>
+    </footer>
 </body>
 </html>
