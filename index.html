@@ -16,7 +16,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-        .polaroid:hover { transform: scale(1.05); }
+        .polaroid:hover { transform: scale(1.02); }
         .marquee { overflow: hidden; white-space: nowrap; }
         .marquee-inner { display: inline-block; animation: scroll 20s linear infinite; }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -24,26 +24,35 @@
 </head>
 <body class="font-sans min-h-screen flex flex-col overflow-x-hidden">
 
-    <header class="p-8 flex justify-between items-center z-10">
-        <h1 class="font-serif text-2xl tracking-widest uppercase">The Pearl Alaya</h1>
-        <div class="text-sm tracking-widest uppercase"></div>
+    <header class="p-8 flex flex-col items-center justify-center gap-4 z-10">
+        <img src="TPL_Logo.jpg" alt="The Pearl Alaya Logo" class="h-24 w-auto object-contain">
+        <h1 class="font-serif text-3xl tracking-[0.2em] uppercase">The Pearl Alaya</h1>
     </header>
 
     <main class="flex-grow flex flex-col items-center justify-center relative p-4">
         <p class="font-serif text-sm tracking-[0.3em] uppercase mb-12">A New Era of Beauty Is Near</p>
         
-        <!-- Polaroids Section -->
-        <div class="hidden md:flex absolute top-20 left-[10%] -rotate-3 w-48 polaroid">
+        <!-- Left Polaroids -->
+        <div class="hidden md:flex absolute top-20 left-[15%] -rotate-3 w-48 polaroid">
             <img src="TPL_Suit.jpeg" alt="Collection" class="w-full h-64 object-cover">
         </div>
-        <div class="hidden md:flex absolute bottom-20 right-[10%] rotate-6 w-48 polaroid">
-            <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-64 object-cover">
+        <div class="hidden md:flex absolute top-40 left-[5%] rotate-2 w-40 polaroid">
+            <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-56 object-cover">
         </div>
 
-        <h2 class="font-serif text-8xl md:text-9xl italic font-light z-10">Coming Soon.</h2>
+        <!-- Main Title -->
+        <h2 class="font-serif text-7xl md:text-9xl italic font-light z-10 text-center">Coming Soon.</h2>
+
+        <!-- Right Polaroids -->
+        <div class="hidden md:flex absolute bottom-20 right-[15%] rotate-6 w-48 polaroid">
+            <img src="TPL_Wait.jpg" alt="Collection" class="w-full h-64 object-cover">
+        </div>
+        <div class="hidden md:flex absolute bottom-40 right-[5%] -rotate-2 w-40 polaroid">
+            <img src="TPL_Suit.jpeg" alt="Collection" class="w-full h-56 object-cover">
+        </div>
     </main>
 
-    <footer class="py-8 marquee font-serif text-sm uppercase tracking-widest border-t border-stone-200">
+    <footer class="py-8 marquee font-serif text-sm uppercase tracking-widest border-t border-stone-200 mt-12">
         <div class="marquee-inner">
             <span>Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal &nbsp; • &nbsp; Get Ready for the Reveal</span>
         </div>
